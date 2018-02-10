@@ -1,0 +1,14 @@
+c:\users\plotn\documents\visual studio 2017\Projects\NewCalculator\NewCalculator\bin\Debug\NewCalculator.exe.config
+c:\users\plotn\documents\visual studio 2017\Projects\NewCalculator\NewCalculator\bin\Debug\NewCalculator.exe
+c:\users\plotn\documents\visual studio 2017\Projects\NewCalculator\NewCalculator\bin\Debug\NewCalculator.pdb
+c:\users\plotn\documents\visual studio 2017\Projects\NewCalculator\NewCalculator\obj\Debug\NewCalculator.csprojResolveAssemblyReference.cache
+c:\users\plotn\documents\visual studio 2017\Projects\NewCalculator\NewCalculator\obj\Debug\MainWindow.g.cs
+c:\users\plotn\documents\visual studio 2017\Projects\NewCalculator\NewCalculator\obj\Debug\App.g.cs
+c:\users\plotn\documents\visual studio 2017\Projects\NewCalculator\NewCalculator\obj\Debug\NewCalculator_MarkupCompile.cache
+c:\users\plotn\documents\visual studio 2017\Projects\NewCalculator\NewCalculator\obj\Debug\NewCalculator_MarkupCompile.lref
+c:\users\plotn\documents\visual studio 2017\Projects\NewCalculator\NewCalculator\obj\Debug\MainWindow.baml
+c:\users\plotn\documents\visual studio 2017\Projects\NewCalculator\NewCalculator\obj\Debug\NewCalculator.g.resources
+c:\users\plotn\documents\visual studio 2017\Projects\NewCalculator\NewCalculator\obj\Debug\NewCalculator.Properties.Resources.resources
+c:\users\plotn\documents\visual studio 2017\Projects\NewCalculator\NewCalculator\obj\Debug\NewCalculator.csproj.GenerateResource.Cache
+c:\users\plotn\documents\visual studio 2017\Projects\NewCalculator\NewCalculator\obj\Debug\NewCalculator.exe
+c:\users\plotn\documents\visual studio 2017\Projects\NewCalculator\NewCalculator\obj\Debug\NewCalculator.pdb
