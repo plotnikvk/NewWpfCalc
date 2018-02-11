@@ -1,0 +1,13 @@
+C:\Users\plotn\Documents\Visual Studio 2017\Projects\NewWpfCalc\NewCalculator\NewCalculator\bin\Release\NewCalculator.exe.config
+C:\Users\plotn\Documents\Visual Studio 2017\Projects\NewWpfCalc\NewCalculator\NewCalculator\bin\Release\NewCalculator.exe
+C:\Users\plotn\Documents\Visual Studio 2017\Projects\NewWpfCalc\NewCalculator\NewCalculator\bin\Release\NewCalculator.pdb
+C:\Users\plotn\Documents\Visual Studio 2017\Projects\NewWpfCalc\NewCalculator\NewCalculator\obj\Release\MainWindow.g.cs
+C:\Users\plotn\Documents\Visual Studio 2017\Projects\NewWpfCalc\NewCalculator\NewCalculator\obj\Release\App.g.cs
+C:\Users\plotn\Documents\Visual Studio 2017\Projects\NewWpfCalc\NewCalculator\NewCalculator\obj\Release\NewCalculator_MarkupCompile.cache
+C:\Users\plotn\Documents\Visual Studio 2017\Projects\NewWpfCalc\NewCalculator\NewCalculator\obj\Release\NewCalculator_MarkupCompile.lref
+C:\Users\plotn\Documents\Visual Studio 2017\Projects\NewWpfCalc\NewCalculator\NewCalculator\obj\Release\MainWindow.baml
+C:\Users\plotn\Documents\Visual Studio 2017\Projects\NewWpfCalc\NewCalculator\NewCalculator\obj\Release\NewCalculator.g.resources
+C:\Users\plotn\Documents\Visual Studio 2017\Projects\NewWpfCalc\NewCalculator\NewCalculator\obj\Release\NewCalculator.Properties.Resources.resources
+C:\Users\plotn\Documents\Visual Studio 2017\Projects\NewWpfCalc\NewCalculator\NewCalculator\obj\Release\NewCalculator.csproj.GenerateResource.Cache
+C:\Users\plotn\Documents\Visual Studio 2017\Projects\NewWpfCalc\NewCalculator\NewCalculator\obj\Release\NewCalculator.exe
+C:\Users\plotn\Documents\Visual Studio 2017\Projects\NewWpfCalc\NewCalculator\NewCalculator\obj\Release\NewCalculator.pdb

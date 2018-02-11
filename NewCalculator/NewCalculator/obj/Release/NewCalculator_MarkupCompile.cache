@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\plotn\Documents\Visual Studio 2017\Projects\NewWpfCalc\NewCalculator\NewCalculator\obj\Debug\
+C:\Users\plotn\Documents\Visual Studio 2017\Projects\NewWpfCalc\NewCalculator\NewCalculator\obj\Release\
 NewCalculator
 none
 false
-DEBUG;TRACE
+TRACE
 C:\Users\plotn\Documents\Visual Studio 2017\Projects\NewWpfCalc\NewCalculator\NewCalculator\App.xaml
 11151548125
 
-10-424561424
+6-751590536
 13738642453
 MainWindow.xaml;
 
-True
+False
 
