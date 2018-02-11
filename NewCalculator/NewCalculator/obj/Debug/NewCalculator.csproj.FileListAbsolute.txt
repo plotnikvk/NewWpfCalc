@@ -26,3 +26,4 @@ C:\Users\plotn\Documents\Visual Studio 2017\Projects\NewWpfCalc\NewCalculator\Ne
 C:\Users\plotn\Documents\Visual Studio 2017\Projects\NewWpfCalc\NewCalculator\NewCalculator\obj\Debug\NewCalculator.g.resources
 C:\Users\plotn\Documents\Visual Studio 2017\Projects\NewWpfCalc\NewCalculator\NewCalculator\obj\Debug\NewCalculator.Properties.Resources.resources
 C:\Users\plotn\Documents\Visual Studio 2017\Projects\NewWpfCalc\NewCalculator\NewCalculator\obj\Debug\NewCalculator.csproj.GenerateResource.Cache
+C:\Users\plotn\Documents\Visual Studio 2017\Projects\NewWpfCalc\NewCalculator\NewCalculator\obj\Debug\NewCalculator.csproj.CoreCompileInputs.cache

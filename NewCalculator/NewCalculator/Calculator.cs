@@ -1,4 +1,21 @@
-﻿namespace NewCalculator
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+
+
+namespace NewCalculator
 {
     class Calculator
     {
@@ -22,7 +39,6 @@
                 isSecondNumberExist = false;
                 outputResult = "";
             }
-
             if (outputResult == "0" && numberInTag != ",")
             {
                 outputResult = numberInTag;
@@ -32,26 +48,33 @@
                 outputResult += numberInTag;
             }
         }
-
-        public void Equals()
+        
+        void SecondNumberEnter()
         {
             secondNumberSave = decimal.Parse(outputResult);
             currentState += secondNumberSave.ToString();
+        }
+        public void Equals()
+        {
             switch (operation)
             {
                 case "+":
+                    SecondNumberEnter();
                     outputResult = (firstNumberSave + secondNumberSave).ToString();
                     break;
                 case "-":
+                    SecondNumberEnter();
                     outputResult = (firstNumberSave - secondNumberSave).ToString();
                     break;
-                case "*":
+                case "×":
+                    SecondNumberEnter();
                     outputResult = (firstNumberSave * secondNumberSave).ToString();
                     break;
-                case "/":
+                case "÷":
+                    SecondNumberEnter();
                     if (secondNumberSave == 0)
                     {
-                     outputResult = "Деление на ноль \n невозможно!!!";
+                     outputResult = "Divide by Zero \n impossible!!!";
                     }
                     else
                     {
@@ -59,10 +82,21 @@
                     }
                     break;
                 case "%":
+                    SecondNumberEnter();
                     outputResult = (firstNumberSave / 100 * secondNumberSave).ToString() + "%";
                     break;
-                case "±":
-                    outputResult = "-" + outputResult;
+                case "^2":
+                    outputResult = Math.Pow((double)firstNumberSave, 2).ToString() ;
+                    break;
+                case "^":
+                    SecondNumberEnter();
+                    outputResult = Math.Pow((double)firstNumberSave, (double)secondNumberSave).ToString();
+                    break;
+                case "√":
+                    outputResult = Math.Sqrt((double)firstNumberSave).ToString();
+                    break;
+                case "1/x":
+                    outputResult = (1 / firstNumberSave).ToString();
                     break;
                 case ",":
                       if (outputResult.Contains(","))
@@ -71,6 +105,10 @@
                 default:
                     break;
             }
+        }
+        public void ButtonMinusPressed()
+        {
+            outputResult = "-" + outputResult;
         }
         public void Clear()
         {
@@ -98,36 +136,36 @@
         {
             if (outputResult != "")
             {
-                if (outputResult == "Деление на ноль \n невозможно!!!")
+                if (outputResult == "Divide by Zero \n impossible!!!")
                 {
                     outputResult = "0";
                 }
-                if (firstNumberSave != 0 && outputResult != "")
+                if (firstNumberSave != 0 && outputResult != "" && isSecondNumberExist)
                 {
                     Equals();
                 }
                 if (operation == ",")
                 {
-                    outputResult = outputResult + ",";
+                    Input(",");
                 }
                 else
                 {
                     firstNumberSave = decimal.Parse(outputResult);
-                    currentState = firstNumberSave.ToString() + " " + operation + " ";
-
+                    if (operation == "√")
+                    {
+                        currentState = operation + firstNumberSave;
+                    }
+                    else if(operation == "1/x")
+                    {
+                        currentState = "1÷" + firstNumberSave;
+                    }
+                    else
+                    {
+                        currentState = firstNumberSave + " " + operation + " ";
+                    }
                     isSecondNumberExist = false;
                     outputResult = "";
                 }
-            }
-        }
-        public void DotClick()
-        { 
-           
-            if (operation == ",")
-            {
-                if (outputResult.Contains(","))
-                    Input(",");
-
             }
         }
     }

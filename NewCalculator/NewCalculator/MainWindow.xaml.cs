@@ -66,5 +66,11 @@ namespace NewCalculator
             calc.Clear();
             Update();
         }
-    }
+
+        private void ButtonMinus_Click(object sender, RoutedEventArgs e)
+        {
+            calc.ButtonMinusPressed();
+            Update();
+        }
+    } 
 }
