@@ -23,21 +23,22 @@ namespace NewCalculator
         private decimal secondNumberSave;
         private string operation;
         private bool isSecondNumberExist;
+        private bool isOperatorButtonPressed;
         private string outputResult = "0";
         private string currentState;
+        private string btnDot;
 
         public string OutputResult { get { return outputResult; } set { outputResult = value; } }
         public string Operation { get { return operation; } set { operation = value; } }
         public string CurrentState { get { return currentState; } set { currentState = value; } }
+        public string BtnDot { get { return btnDot; } set { btnDot = value; } }
 
+        //метод, который соединяет значения тегов и сохраняет в строковую переменную
         public void Input(string numberInTag)
         {
             if (isSecondNumberExist)
             {
-                firstNumberSave = 0;
-                secondNumberSave = 0;
-                isSecondNumberExist = false;
-                outputResult = "";
+                Clear(); 
             }
             if (outputResult == "0" && numberInTag != ",")
             {
@@ -48,12 +49,14 @@ namespace NewCalculator
                 outputResult += numberInTag;
             }
         }
-        
+        //метод, который присваивает значение второй переменной и добавляет к верхней метке значение второй переменной
         void SecondNumberEnter()
         {
             secondNumberSave = decimal.Parse(outputResult);
             currentState += secondNumberSave.ToString();
+            isSecondNumberExist = true;
         }
+        //второй основной метод, в котором производятся операции над переменными в зависимости от значения переменной "operation"
         public void Equals()
         {
             switch (operation)
@@ -98,28 +101,35 @@ namespace NewCalculator
                 case "1/x":
                     outputResult = (1 / firstNumberSave).ToString();
                     break;
-                case ",":
-                      if (outputResult.Contains(","))
-                            Input(",");
-                    break;
                 default:
                     break;
             }
+            isSecondNumberExist = true;
+            isOperatorButtonPressed = false;
         }
+        //метод, который добавляет запятую к строке из цифр
+        public void ButtonDotPressed()
+        {
+            if (btnDot.Contains(","))
+                Input(",");
+        }
+        //метод, который добавляет минус перед строкой из цифр
         public void ButtonMinusPressed()
         {
-            outputResult = "-" + outputResult;
+            outputResult =((-1)*decimal.Parse(outputResult)).ToString();
         }
+        //метод, который делает полный сброс к начальным настройкам
         public void Clear()
         {
             firstNumberSave = 0;
             secondNumberSave = 0;
+            isSecondNumberExist = false;
             outputResult = "0";
             currentState = "";
         }
+        //метод, который стирает последнюю введенную цифру
         public void Erase()
         {
-
             if (outputResult != "0")
             {
                 if (outputResult.Length == 1)
@@ -132,6 +142,8 @@ namespace NewCalculator
                 }
             }
         }
+        //первый основной метод, который присваивает значение первой переменной, а также присваивает 
+        //значение первой переменной и знака операции верхней метке
         public void Operator()
         {
             if (outputResult != "")
@@ -140,13 +152,9 @@ namespace NewCalculator
                 {
                     outputResult = "0";
                 }
-                if (firstNumberSave != 0 && outputResult != "" && isSecondNumberExist)
+                if (firstNumberSave != 0 && outputResult != "" && isSecondNumberExist && isOperatorButtonPressed)
                 {
                     Equals();
-                }
-                if (operation == ",")
-                {
-                    Input(",");
                 }
                 else
                 {
@@ -165,9 +173,12 @@ namespace NewCalculator
                     }
                     isSecondNumberExist = false;
                     outputResult = "";
+
+                    isOperatorButtonPressed = true;
                 }
             }
         }
+        
     }
 }
 
