@@ -40,7 +40,7 @@
         <Button Grid.ColumnSpan="1" Background="#FFECE8E8" FontStyle="Italic" BorderBrush="#FFECE8E8" FontSize="36" Content="+" Tag="+" Margin="1,1,1,1" Grid.Row="6" Grid.Column="3" HorizontalContentAlignment="Center" Click="ButtonOperator_Click"/>
         <Button Grid.ColumnSpan="1" Background="#FFECE8E8" FontStyle="Italic" BorderBrush="#FFECE8E8" FontSize="36" Content="±" Tag="±" Margin="1,1,1,1" Grid.Row="7"  HorizontalContentAlignment="Center" Click="ButtonMinus_Click"/>
         <Button Grid.ColumnSpan="1" Background="White" FontStyle="Italic" BorderBrush="#FFECE8E8" FontSize="26" Content="0" Tag="0" Margin="1,1,1,1" Grid.Row="7" Grid.Column="1" HorizontalContentAlignment="Center" Click="Button_Click" FontWeight="Bold"/>
-        <Button Grid.ColumnSpan="1" Background="#FFECE8E8" FontStyle="Italic" BorderBrush="#FFECE8E8" FontSize="36" Content="," Tag="," Margin="1,1,1,1" Grid.Row="7" Grid.Column="2" HorizontalContentAlignment="Center" Click="ButtonDot_Click"/>
+        <Button Grid.ColumnSpan="1" Background="#FFECE8E8" FontStyle="Italic" BorderBrush="#FFECE8E8" FontSize="36" Content="," Tag="," Margin="1,1,1,1" Grid.Row="7" Grid.Column="2" HorizontalContentAlignment="Center" Click="Button_Click"/>
         <Button Grid.ColumnSpan="1" Background="#FFECE8E8" FontStyle="Italic" BorderBrush="#FFECE8E8" FontSize="36" Content="=" Tag="=" Margin="1,1,1,1" Grid.Row="7" Grid.Column="3" HorizontalContentAlignment="Center" Click="ButtonEquals_Click"/>
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>

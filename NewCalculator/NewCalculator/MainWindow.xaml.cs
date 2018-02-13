@@ -74,13 +74,5 @@ namespace NewCalculator
             calc.ButtonMinusPressed();
             Update();
         }
-        //метод для кнопки с запятой
-        private void ButtonDot_Click(object sender, RoutedEventArgs e)
-        {
-            Button btnDotPressed = (Button)sender;
-            calc.BtnDot = btnDotPressed.Tag.ToString();
-            calc.ButtonDotPressed();
-            Update();
-        }
     } 
 }

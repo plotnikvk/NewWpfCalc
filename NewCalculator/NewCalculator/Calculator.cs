@@ -46,7 +46,14 @@ namespace NewCalculator
             }
             else
             {
-                outputResult += numberInTag;
+                if (outputResult.Contains(",") && numberInTag == ",")
+                {
+                    outputResult = outputResult + "";
+                }
+                else
+                {
+                    outputResult += numberInTag;
+                }
             }
         }
         //метод, который присваивает значение второй переменной и добавляет к верхней метке значение второй переменной
@@ -106,12 +113,6 @@ namespace NewCalculator
             }
             isSecondNumberExist = true;
             isOperatorButtonPressed = false;
-        }
-        //метод, который добавляет запятую к строке из цифр
-        public void ButtonDotPressed()
-        {
-            if (btnDot.Contains(","))
-                Input(",");
         }
         //метод, который добавляет минус перед строкой из цифр
         public void ButtonMinusPressed()
