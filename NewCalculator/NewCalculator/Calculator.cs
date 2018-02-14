@@ -26,12 +26,10 @@ namespace NewCalculator
         private bool isOperatorButtonPressed;
         private string outputResult = "0";
         private string currentState;
-        private string btnDot;
 
         public string OutputResult { get { return outputResult; } set { outputResult = value; } }
         public string Operation { get { return operation; } set { operation = value; } }
         public string CurrentState { get { return currentState; } set { currentState = value; } }
-        public string BtnDot { get { return btnDot; } set { btnDot = value; } }
 
         //метод, который соединяет значения тегов и сохраняет в строковую переменную
         public void Input(string numberInTag)
@@ -125,6 +123,7 @@ namespace NewCalculator
             firstNumberSave = 0;
             secondNumberSave = 0;
             isSecondNumberExist = false;
+            isOperatorButtonPressed = false;
             outputResult = "0";
             currentState = "";
         }
@@ -153,12 +152,11 @@ namespace NewCalculator
                 {
                     outputResult = "0";
                 }
-                if (firstNumberSave != 0 && outputResult != "" && isSecondNumberExist && isOperatorButtonPressed)
+                if (firstNumberSave != 0 && outputResult != "" && isSecondNumberExist == false && isOperatorButtonPressed)
                 {
                     Equals();
+                    //this.Operator();
                 }
-                else
-                {
                     firstNumberSave = decimal.Parse(outputResult);
                     if (operation == "√")
                     {
@@ -176,7 +174,6 @@ namespace NewCalculator
                     outputResult = "";
 
                     isOperatorButtonPressed = true;
-                }
             }
         }
         
