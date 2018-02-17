@@ -19,25 +19,26 @@ namespace NewCalculator
 {
     class Calculator
     {
-        private decimal firstNumberSave;
-        private decimal secondNumberSave;
+        private double firstNumberSave;
+        private double secondNumberSave;
         private string operation;
         private bool isSecondNumberExist;
         private bool isOperatorButtonPressed;
         private string outputResult = "0";
         private string currentState;
+        private string nextOperation;
+        private string currentOperation;
 
         public string OutputResult { get { return outputResult; } set { outputResult = value; } }
         public string Operation { get { return operation; } set { operation = value; } }
-        public string CurrentState { get { return currentState; } set { currentState = value; } }
+        public string CurrentState { get { return currentState; } set { currentState = value; } } 
+
 
         //метод, который соединяет значения тегов и сохраняет в строковую переменную
         public void Input(string numberInTag)
         {
             if (isSecondNumberExist)
-            {
                 Clear(); 
-            }
             if (outputResult == "0" && numberInTag != ",")
             {
                 outputResult = numberInTag;
@@ -57,13 +58,16 @@ namespace NewCalculator
         //метод, который присваивает значение второй переменной и добавляет к верхней метке значение второй переменной
         void SecondNumberEnter()
         {
-            secondNumberSave = decimal.Parse(outputResult);
+            secondNumberSave = double.Parse(outputResult);
             currentState += secondNumberSave.ToString();
             isSecondNumberExist = true;
         }
         //второй основной метод, в котором производятся операции над переменными в зависимости от значения переменной "operation"
         public void Equals()
         {
+                nextOperation = operation;
+                operation = currentOperation;
+            
             switch (operation)
             {
                 case "+":
@@ -81,27 +85,26 @@ namespace NewCalculator
                 case "÷":
                     SecondNumberEnter();
                     if (secondNumberSave == 0)
-                    {
                      outputResult = "Divide by Zero \n impossible!!!";
-                    }
                     else
-                    {
                      outputResult = (firstNumberSave / secondNumberSave).ToString();
-                    }
                     break;
                 case "%":
                     SecondNumberEnter();
-                    outputResult = (firstNumberSave / 100 * secondNumberSave).ToString() + "%";
+                    outputResult = (firstNumberSave / 100 * secondNumberSave).ToString();
                     break;
                 case "^2":
-                    outputResult = Math.Pow((double)firstNumberSave, 2).ToString() ;
+                    outputResult = Math.Pow(firstNumberSave, 2).ToString() ;
                     break;
                 case "^":
                     SecondNumberEnter();
-                    outputResult = Math.Pow((double)firstNumberSave, (double)secondNumberSave).ToString();
+                    outputResult = Math.Pow(firstNumberSave, (double)secondNumberSave).ToString();
                     break;
                 case "√":
-                    outputResult = Math.Sqrt((double)firstNumberSave).ToString();
+                    if (firstNumberSave < 0)
+                        outputResult = "Not A Number!!!";
+                    else
+                        outputResult = Math.Sqrt(firstNumberSave).ToString();
                     break;
                 case "1/x":
                     outputResult = (1 / firstNumberSave).ToString();
@@ -111,6 +114,10 @@ namespace NewCalculator
             }
             isSecondNumberExist = true;
             isOperatorButtonPressed = false;
+            operation = nextOperation;
+            if (outputResult == "Divide by Zero \n impossible!!!" || outputResult == "Not A Number!!!")
+                return;
+            outputResult = (Math.Round(double.Parse(outputResult), 10)).ToString();
         }
         //метод, который добавляет минус перед строкой из цифр
         public void ButtonMinusPressed()
@@ -148,16 +155,16 @@ namespace NewCalculator
         {
             if (outputResult != "")
             {
-                if (outputResult == "Divide by Zero \n impossible!!!")
+                if (outputResult == "Divide by Zero \n impossible!!!" || outputResult == "Not A Number!!!")
                 {
                     outputResult = "0";
                 }
-                if (firstNumberSave != 0 && outputResult != "" && isSecondNumberExist == false && isOperatorButtonPressed)
+                if (firstNumberSave != 0 && outputResult != "" && isSecondNumberExist == false 
+                    && isOperatorButtonPressed)
                 {
                     Equals();
-                    //this.Operator();
                 }
-                    firstNumberSave = decimal.Parse(outputResult);
+                    firstNumberSave = double.Parse(outputResult);
                     if (operation == "√")
                     {
                         currentState = operation + firstNumberSave;
@@ -170,13 +177,19 @@ namespace NewCalculator
                     {
                         currentState = firstNumberSave + " " + operation + " ";
                     }
-                    isSecondNumberExist = false;
+               isSecondNumberExist = false;
+                if(operation== "1/x" || operation == "^2" || operation == "√")
+                {  
+                    outputResult = outputResult + "";
+                }
+                else
+                {
                     outputResult = "";
-
-                    isOperatorButtonPressed = true;
+                }
+               isOperatorButtonPressed = true;
+               currentOperation = operation;
             }
         }
-        
     }
 }
 

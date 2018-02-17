@@ -12,3 +12,4 @@ C:\Users\plotn\Documents\Visual Studio 2017\Projects\NewWpfCalc\NewCalculator\Ne
 C:\Users\plotn\Documents\Visual Studio 2017\Projects\NewWpfCalc\NewCalculator\NewCalculator\obj\Release\NewCalculator.exe
 C:\Users\plotn\Documents\Visual Studio 2017\Projects\NewWpfCalc\NewCalculator\NewCalculator\obj\Release\NewCalculator.pdb
 C:\Users\plotn\Documents\Visual Studio 2017\Projects\NewWpfCalc\NewCalculator\NewCalculator\obj\Release\NewCalculator.csproj.CoreCompileInputs.cache
+C:\Users\plotn\Documents\Visual Studio 2017\Projects\NewWpfCalc\NewCalculator\NewCalculator\obj\Release\NewCalculator.csprojResolveAssemblyReference.cache
