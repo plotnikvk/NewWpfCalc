@@ -37,22 +37,18 @@ namespace NewCalculator
         //метод, который соединяет значения тегов и сохраняет в строковую переменную
         public void Input(string numberInTag)
         {
+            if (outputResultOverFlow() == false)
+                return;
             if (isSecondNumberExist)
                 Clear(); 
             if (outputResult == "0" && numberInTag != ",")
-            {
                 outputResult = numberInTag;
-            }
             else
             {
                 if (outputResult.Contains(",") && numberInTag == ",")
-                {
-                    outputResult = outputResult + "";
-                }
+                   outputResult = outputResult + "";
                 else
-                {
-                    outputResult += numberInTag;
-                }
+                   outputResult += numberInTag;
             }
         }
         //метод, который присваивает значение второй переменной и добавляет к верхней метке значение второй переменной
@@ -61,6 +57,19 @@ namespace NewCalculator
             secondNumberSave = double.Parse(outputResult);
             currentState += secondNumberSave.ToString();
             isSecondNumberExist = true;
+        }
+        //Метод, который присваивает значение первой переменной и и метке присваивает значение переменной плюс оператор
+        void FirstNumberEnter()
+        {
+            firstNumberSave = double.Parse(outputResult);
+            if (operation == "√")
+                currentState = operation + "(" + firstNumberSave + ")";
+            else if (operation == "1/x")
+                currentState = "1÷" + "(" + firstNumberSave + ")";
+            else if (operation == "^2" || operation == "^")
+                currentState = "(" + firstNumberSave + ") " + operation + " ";
+            else
+                currentState = firstNumberSave + " " + operation + " ";
         }
         //второй основной метод, в котором производятся операции над переменными в зависимости от значения переменной "operation"
         public void Equals()
@@ -80,7 +89,7 @@ namespace NewCalculator
                     break;
                 case "×":
                     SecondNumberEnter();
-                    outputResult = (firstNumberSave * secondNumberSave).ToString();
+                   outputResult = (firstNumberSave * secondNumberSave).ToString();
                     break;
                 case "÷":
                     SecondNumberEnter();
@@ -117,6 +126,7 @@ namespace NewCalculator
             operation = nextOperation;
             if (outputResult == "Divide by Zero \n impossible!!!" || outputResult == "Not A Number!!!")
                 return;
+            outputResult = outputResultCheckLenght(double.Parse(outputResult));
             outputResult = (Math.Round(double.Parse(outputResult), 10)).ToString();
         }
         //метод, который добавляет минус перед строкой из цифр
@@ -164,23 +174,12 @@ namespace NewCalculator
                 {
                     Equals();
                 }
-                    firstNumberSave = double.Parse(outputResult);
-                    if (operation == "√")
-                    {
-                        currentState = operation + firstNumberSave;
-                    }
-                    else if(operation == "1/x")
-                    {
-                        currentState = "1÷" + firstNumberSave;
-                    }
-                    else
-                    {
-                        currentState = firstNumberSave + " " + operation + " ";
-                    }
-               isSecondNumberExist = false;
+                FirstNumberEnter();
+                isSecondNumberExist = false;
                 if(operation== "1/x" || operation == "^2" || operation == "√")
                 {  
                     outputResult = outputResult + "";
+                    isSecondNumberExist = true;
                 }
                 else
                 {
@@ -189,6 +188,30 @@ namespace NewCalculator
                isOperatorButtonPressed = true;
                currentOperation = operation;
             }
+        }
+        //метод, который проверяет длину строки и возвращает ее в виде экспоненциального формата,
+        //если слишком большое или слишком маленькое, или в обычном формате если не превышает ограничений.
+        private string outputResultCheckLenght(double length)
+        {
+            if (length.ToString().Length > 15)
+            {
+                if (length > 999999999999999)
+                    return length.ToString("E10");
+                else
+                    return length.ToString("G");
+            }
+            else
+            {
+                return length.ToString();
+            }
+        }
+        //Метод, который проверяет outputResult на переполнение и возвращает false методу Input, если переполнено
+        private bool outputResultOverFlow()
+        {
+            if (outputResult.Length > 18)
+                return false;
+            else
+                return true;
         }
     }
 }
